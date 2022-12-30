@@ -1,0 +1,7 @@
+.lineas {
+    border: 5px solid;
+    border-radius: 20px;
+    border-image: linear-gradient(to bottom, #080808 0%, #ffffff 100%) 1;
+    margin: 3px;
+    padding: 3px;
+}

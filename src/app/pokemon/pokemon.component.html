@@ -1,12 +1,25 @@
-<input type="email" required="true" placeholder="Ejemplo: Lugia" [(ngModel)]="name" (keyup.enter)="search()" >
-<button (click)="search()" >Buscar</button>
+<div class="d-flex justify-content-center">
+    <input type="search" required="true" placeholder="Ejemplo: Lugia" [(ngModel)]="name" (keyup.enter)="search()" >
+  <button (click)="search()" class="btn btn-secondary">Buscar</button>
+</div>
 <br/>
-
-<div class="card" style="width: 18rem;">
-    <img src="{{urlImage}}" class="card-img-top" alt="foto pokemon">
+<div class="d-flex justify-content-center">
+  <div class="card" style="width: 18rem;">
+    <img src="{{urlImageShiny}}" onerror="this.src='../assets/default.jpg';" class="card-img-top" alt="foto pokemon">
+    <h5 class="card-title">Pokemon Modo: Shiny</h5>
+  </div>
+  <div class="card" style="width: 18rem;">
+    <img src="{{urlImageFront}}" onerror="this.src='../assets/default.jpg';" class="card-img-top" alt="foto pokemon">
     <div class="card-body">
-      <h5 class="card-title">{{name}}</h5>
+      <h5 class="card-title" >{{name}}</h5>
       <p class="card-text">{{description}}</p>
-      <a href="#" class="btn btn-primary">Nada</a>
+      <a href="#"  class="btn btn-secondary">Nada</a>
     </div>
   </div>
+  <div class="card" style="width: 18rem;">
+    <img src="{{urlImageBack}}" onerror="this.src='../assets/default.jpg';" class="card-img-top" alt="foto pokemon">
+    <div class="card-body">
+      <h5 class="card-title">Pokemon Modo: de espaldas</h5>
+    </div>
+  </div>
+</div>
