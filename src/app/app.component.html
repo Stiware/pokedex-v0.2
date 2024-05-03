@@ -1,6 +1,12 @@
-<div>
+<div >
     <h1 class="d-flex justify-content-center">PokeDex</h1>
+    <div class="container d-flex justify-content-center gap-3">
+        <button class="btn btn-outline-danger" (click)="cambiarVista('listar')">PokeDex</button>
+        <button class="btn btn-outline-danger" (click)="cambiarVista('buscar')">Buscar</button>
+    </div>
 </div>
-<div class="d-flex justify-content-center lineas">
-    <app-pokemon></app-pokemon>
+<div class="d-flex lineas">
+        <app-pokemon *ngIf="buscar"></app-pokemon>    
+        <app-pokemon-list *ngIf="listar"></app-pokemon-list>
+    
 </div>

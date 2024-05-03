@@ -1,0 +1,52 @@
+<header class="d-flex justify-content-center my-3">
+    <div class="container d-flex flex-row gap-3 flex-wrap">
+        <h2>Tipos</h2>
+        <button class="btn" style="background-color: #F08030">Fuego</button>
+        <button class="btn btn-info">Agua</button>
+        <button class="btn btn-info">Planta</button>
+        <button class="btn btn-info">Hada</button>
+        <button class="btn btn-info">Electrico</button>
+        <button class="btn btn-info">Lucha</button>
+        <button class="btn btn-info">Psiquico</button>
+        <button class="btn btn-info">Bicho</button>
+        <button class="btn btn-info">Roca</button>
+        <button class="btn btn-info">Volador</button>
+        <button class="btn btn-info">Tierra</button>
+        <button class="btn btn-info">Fantasma</button>
+        <button class="btn btn-info">Hielo</button>
+        <button class="btn btn-info">Dragon</button>
+        <button class="btn btn-info">Siniestro</button>
+        <button class="btn btn-info">Acero</button>
+        <button class="btn btn-info">Roca</button>
+        <button class="btn btn-info">Normal</button>
+    </div>
+    <div class="container d-flex justify-content-end" style="max-width: 30px;">
+        <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+            Regiones
+        </button>
+        <ul class="dropdown-menu">
+            <li><a class="dropdown-item" (click)="gen(1)">Kanto</a></li>
+            <li><a class="dropdown-item" (click)="gen(2)">Johto</a></li>
+            <li><a class="dropdown-item" (click)="gen(3)">Hoen</a></li>
+            <li><a class="dropdown-item" (click)="gen(4)">Shinno</a></li>
+            <li><a class="dropdown-item" (click)="gen(5)">Teselia/Unova</a></li>
+            <li><a class="dropdown-item" (click)="gen(6)">Kalos</a></li>
+            <li><a class="dropdown-item" (click)="gen(7)">Alola</a></li>
+            <li><a class="dropdown-item" (click)="gen(8)">Galar</a></li>
+            <li><a class="dropdown-item" (click)="gen(9)">Paldea</a></li>
+        </ul>
+    </div>
+    
+
+</header>
+
+<main class="d-flex justify-content-center gap-5 flex-wrap">
+    
+    <div *ngFor="let pokemon of Pokedex" class="card" style="width: 18rem;">
+    <img src="{{pokemon[3]}}" class="card-img-top" alt="...">
+    <div class="card-body">
+        <h5 class="card-title">{{pokemon[1] | uppercase}}</h5>
+        <p class="card-text">{{desc(descriptions,pokemon[0])}}</p>
+    </div>
+    </div>
+</main>

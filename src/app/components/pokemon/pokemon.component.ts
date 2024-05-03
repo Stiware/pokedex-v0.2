@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { debounce } from 'rxjs';
-import { PokemonService } from '../services/pokemon.service';
+import { PokemonService } from '../../services/pokemon.service';
 
 @Component({
   selector: 'app-pokemon',
@@ -20,7 +20,7 @@ export class PokemonComponent implements OnInit {
 
   search() {
     this.pokemonService.getPokemonPhoto(this.name).subscribe((data:any) => {
-      if (data.sprites.other.dream_world.front_default !== null)
+      if (data.sprites.other['official-artwork'].front_default !== null)
       {
         this.urlImageFront = data.sprites.other.dream_world.front_default;
       }
@@ -28,8 +28,9 @@ export class PokemonComponent implements OnInit {
       {
         this.urlImageFront= data.sprites.front_default;
       }
-      this.urlImageBack = data.sprites.back_default;
-      this.urlImageShiny = data.sprites.front_shiny;
+      this.urlImageBack = data.sprites.other['official-artwork'].front_default;
+      this.urlImageShiny = data.sprites.other['official-artwork'].front_shiny;
+      
     this.pokemonService.getPokemonDescription(this.name).subscribe((data:any)=>{
       const resul = data.flavor_text_entries.filter((el:any) => el.language.name === 'es')
       this.description = resul[this.getRandomArbitrary(1,resul.length)].flavor_text;      
