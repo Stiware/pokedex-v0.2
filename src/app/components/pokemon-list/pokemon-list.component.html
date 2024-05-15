@@ -40,8 +40,9 @@
 
 </header>
 
+
 <main class="d-flex justify-content-center gap-5 flex-wrap">
-    
+@defer (on timer(10s)){
     <div *ngFor="let pokemon of Pokedex" class="card" style="width: 18rem;">
     <img src="{{pokemon[3]}}" class="card-img-top" alt="...">
     <div class="card-body">
@@ -49,4 +50,11 @@
         <p class="card-text">{{desc(descriptions,pokemon[0])}}</p>
     </div>
     </div>
+} 
+@placeholder {
+    <p>Cargando...</p>
+}
+@loading {
+    <p>loading...</p>
+}
 </main>
