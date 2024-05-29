@@ -1,0 +1,11 @@
+.pkm-types{
+    display: flex;
+    gap: .5rem;
+    font-size: .75rem;
+    font-weight: 500;
+    flex-wrap: wrap;
+    justify-content: center;
+    border-radius: 20px;
+    border: solid 1px black;
+}
+

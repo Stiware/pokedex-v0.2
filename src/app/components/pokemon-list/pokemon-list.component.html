@@ -1,24 +1,24 @@
 <header class="d-flex justify-content-center my-3">
     <div class="container d-flex flex-row gap-3 flex-wrap">
         <h2>Tipos</h2>
-        <button class="btn" style="background-color: #F08030">Fuego</button>
-        <button class="btn btn-info">Agua</button>
-        <button class="btn btn-info">Planta</button>
-        <button class="btn btn-info">Hada</button>
-        <button class="btn btn-info">Electrico</button>
-        <button class="btn btn-info">Lucha</button>
-        <button class="btn btn-info">Psiquico</button>
-        <button class="btn btn-info">Bicho</button>
-        <button class="btn btn-info">Roca</button>
-        <button class="btn btn-info">Volador</button>
-        <button class="btn btn-info">Tierra</button>
-        <button class="btn btn-info">Fantasma</button>
-        <button class="btn btn-info">Hielo</button>
-        <button class="btn btn-info">Dragon</button>
-        <button class="btn btn-info">Siniestro</button>
-        <button class="btn btn-info">Acero</button>
-        <button class="btn btn-info">Roca</button>
-        <button class="btn btn-info">Normal</button>
+        <button class="btn" style="background-color: #F08030" (click)="filterType('fire')">Fuego</button>
+        <button class="btn btn-info" (click)="filterType('water')">Agua</button>
+        <button class="btn btn-info" (click)="filterType('grass')">Planta</button>
+        <button class="btn btn-info" (click)="filterType('fairy')">Hada</button>
+        <button class="btn btn-info" (click)="filterType('electric')">Electrico</button>
+        <button class="btn btn-info" (click)="filterType('fighting')">Lucha</button>
+        <button class="btn btn-info" (click)="filterType('psychic')">Psiquico</button>
+        <button class="btn btn-info" (click)="filterType('bug')">Bicho</button>
+        <button class="btn btn-info" (click)="filterType('rock')">Roca</button>
+        <button class="btn btn-info" (click)="filterType('flying')">Volador</button>
+        <button class="btn btn-info" (click)="filterType('ground')">Tierra</button>
+        <button class="btn btn-info" (click)="filterType('ghost')">Fantasma</button>
+        <button class="btn btn-info" (click)="filterType('ice')">Hielo</button>
+        <button class="btn btn-info" (click)="filterType('dragon')">Dragon</button>
+        <button class="btn btn-info" (click)="filterType('dark')">Siniestro</button>
+        <button class="btn btn-info" (click)="filterType('steel')">Acero</button>
+        <button class="btn btn-info" (click)="filterType('rock')">Roca</button>
+        <button class="btn btn-info" (click)="filterType('normal')">Normal</button>
     </div>
     <div class="container d-flex justify-content-end" style="max-width: 30px;">
         <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
@@ -43,13 +43,24 @@
 
 <main class="d-flex justify-content-center gap-5 flex-wrap">
 @defer (on timer(10s)){
-    <div *ngFor="let pokemon of Pokedex" class="card" style="width: 18rem;">
-    <img src="{{pokemon[3]}}" class="card-img-top" alt="...">
-    <div class="card-body">
-        <h5 class="card-title">{{pokemon[1] | uppercase}}</h5>
-        <p class="card-text">{{desc(descriptions,pokemon[0])}}</p>
-    </div>
-    </div>
+
+    @for (pokemon of Pokedex; track pokemon.id ){
+        <div class="card" style="width: 18rem;">
+            <img src="{{pokemon.urlImage}}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5>{{pokemon.name | uppercase}}</h5>
+                <p class="pkm-types">{{pokemon.types[0].type.name}}</p>
+                @if (pokemon.types.length > 1){
+                    <p class="pkm-types">{{pokemon.types[1].type.name}}</p>
+                }
+                <!-- <p class="card-text">{{pokemon.desc[1]}}</p> -->
+                <span class="bg-number">{{pokemon.id}}</span>
+        </div>
+        </div>
+    }
+    @empty {
+        <p>No hay resultados</p>
+    }
 } 
 @placeholder {
     <p>Cargando...</p>
