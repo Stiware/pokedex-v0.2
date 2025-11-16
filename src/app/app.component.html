@@ -1,13 +1,17 @@
 <div >
-    <h1 class="d-flex justify-content-center">PokeDex</h1>
-    <div class="container d-flex justify-content-center gap-3">
-        <button class="btn btn-outline-danger" (click)="cambiarVista('listar')">PokeDex</button>
-        <button class="btn btn-outline-danger" (click)="cambiarVista('buscar')">Buscar</button>
-    </div>
+  <h1 class="d-flex justify-content-center">PokeDex</h1>
+  <div class="container d-flex justify-content-center gap-3">
+    <button class="btn btn-outline-danger" (click)="cambiarVista('listar')">PokeDex</button>
+    <button class="btn btn-outline-danger" (click)="cambiarVista('buscar')">Buscar</button>
+  </div>
 </div>
-<div class="d-flex lineas"> 
-        <app-pokemon *ngIf="buscar"></app-pokemon>    
+<div class="d-flex lineas">
+  @if (buscar) {
+    <app-pokemon></app-pokemon>
+  }
 
-        <app-pokemon-list *ngIf="listar"></app-pokemon-list>
-    
+  @if (listar) {
+    <app-pokemon-list></app-pokemon-list>
+  }
+
 </div>
