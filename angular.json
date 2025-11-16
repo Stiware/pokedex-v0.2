@@ -14,7 +14,7 @@
           "builder": "@angular/build:application",
           "options": {
             "outputPath": {
-              "base": "dist/ang-demo-rest"
+              "base": "dist/ang-demo-rest/browser"
             },
             "index": "src/index.html",
             "polyfills": [
@@ -100,8 +100,7 @@
         "deploy": {
           "builder": "angular-cli-ghpages:deploy",
           "options": {
-            "baseHref": "/pokedex-v0.2.git/",
-            "dir": "dist/ang-demo-rest" 
+            "buildTarget": "AngDemoRest:build:production"
           }
         }
       }
