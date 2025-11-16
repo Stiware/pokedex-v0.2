@@ -3,9 +3,10 @@ import { debounce } from 'rxjs';
 import { PokemonService } from '../../services/pokemon.service';
 
 @Component({
-  selector: 'app-pokemon',
-  templateUrl: './pokemon.component.html',
-  styleUrls: ['./pokemon.component.css']
+    selector: 'app-pokemon',
+    templateUrl: './pokemon.component.html',
+    styleUrls: ['./pokemon.component.css'],
+    standalone: false
 })
 export class PokemonComponent implements OnInit {
 

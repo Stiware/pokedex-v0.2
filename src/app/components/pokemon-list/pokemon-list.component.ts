@@ -3,9 +3,10 @@ import { PokemonModel } from 'src/app/model/pokemon.model';
 import { PokemonService } from 'src/app/services/pokemon.service';
 
 @Component({
-  selector: 'app-pokemon-list',
-  templateUrl: './pokemon-list.component.html',
-  styleUrls: ['./pokemon-list.component.css'],
+    selector: 'app-pokemon-list',
+    templateUrl: './pokemon-list.component.html',
+    styleUrls: ['./pokemon-list.component.css'],
+    standalone: false
 })
 export class PokemonListComponent {
   Generaciones = [
