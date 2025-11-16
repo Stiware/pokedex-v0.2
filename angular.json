@@ -98,7 +98,11 @@
           }
         },
         "deploy": {
-          "builder": "angular-cli-ghpages:deploy"
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {
+            "baseHref": "/pokedex-v0.2.git/",
+            "dir": "dist/ang-demo-rest" 
+          }
         }
       }
     }
